@@ -65,11 +65,11 @@ module.exports = {
             //instruções SQL
             const sql = `UPDATE usuarios SET usu_nome=?, usu_email=?, usu_dt_nasc=?, usu_senha=?, usu_tipo=?, usu_ativo=? WHERE usu_id=?;`;
             //preparo do array com dados que serão atualizados
-            const values = [usu_nome, usu_email, usu_dt_nasc, usu_senha, usu_tipo, usu_ativo];
+            const values = [usu_nome, usu_email, usu_dt_nasc, usu_senha, usu_tipo, usu_ativo, usu_id];
             //execução e obtenção de confirmação da atualização realizada
             const atualizaDados = await db.query(sql, values);
 
-            return response(200).json({
+            return response.status(200).json({
                 sucesso: true,
                 mensagem: `Usuário ${usu_id} atualizado com sucesso!`,
                 dados: atualizaDados[0].affectedRows
