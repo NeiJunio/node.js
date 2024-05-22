@@ -94,7 +94,7 @@ module.exports = {
             //executa instrução no banco de dados
             const excluir = await db.query(sql, values);
 
-            return response(200).json({
+            return response.status(200).json({
                 sucesso: true,
                 mensagem: `Usuário ${usu_id} excluído com sucesso!`,
                 dados: excluir[0].affectedRows
@@ -115,7 +115,7 @@ module.exports = {
             const values = [usu_ativo, usu_id];
             const atualizacao = await db.query(sql, values);
 
-            return response(200).json({
+            return response.status(200).json({
                 sucesso: true,
                 mensagem: `Usuário ${usu_id} ocultado com sucesso!`,
                 dados: atualizacao[0].affectedRows
